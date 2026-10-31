@@ -43,7 +43,13 @@ npm run dev
 
 The API health endpoint is `GET /api/health`.
 
+The Stage 2 API/packaging findings and unresolved source checks are recorded in
+[`docs/stage-02-api-discovery.md`](docs/stage-02-api-discovery.md). In local
+development, start FastAPI on port 8000 and Vite on its default port; Vite
+proxies `/api` requests to FastAPI.
+
 ## Current stage
 
-Stage 1 establishes repository safety, product scope, and the minimum runnable
-frontend and backend. Elexon retrieval and deployment packaging begin in Stage 2.
+Stage 2 adds a local React-to-FastAPI status slice. Elexon retrieval and
+deployment packaging are not implemented yet; source-schema limitations are
+documented in the Stage 2 discovery note.

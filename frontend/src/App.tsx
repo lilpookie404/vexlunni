@@ -1,11 +1,33 @@
+import { useEffect, useState } from "react";
+
+import { getSpikeStatus, type SpikeStatus } from "./api";
 import "./styles.css";
 
 function App() {
+  const [apiStatus, setApiStatus] = useState<SpikeStatus | null>(null);
+  const [apiError, setApiError] = useState(false);
+
+  useEffect(() => {
+    let active = true;
+
+    getSpikeStatus()
+      .then((status) => {
+        if (active) setApiStatus(status);
+      })
+      .catch(() => {
+        if (active) setApiError(true);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
   return (
     <main className="shell">
       <header className="masthead">
         <p className="eyebrow">National wind · decision-time view</p>
-        <span className="status">Stage 1 · Scope locked</span>
+        <span className="status">Stage 2 · Local API spike</span>
       </header>
 
       <section className="intro" aria-labelledby="page-title">
@@ -37,6 +59,10 @@ function App() {
           <p>Elexon WINDFOR and FUELHH WIND only.</p>
         </article>
       </section>
+      <p className="api-status" role="status">
+        {apiStatus?.message ??
+          (apiError ? "Local API unavailable." : "Connecting to local API…")}
+      </p>
     </main>
   );
 }

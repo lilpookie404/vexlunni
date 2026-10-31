@@ -119,6 +119,12 @@ h1 {
   line-height: 1.5;
 }
 
+.api-status {
+  margin: 18px 0 0;
+  color: #47616d;
+  font-size: 0.9rem;
+}
+
 @media (max-width: 680px) {
   .shell {
     width: min(100% - 28px, 1120px);
