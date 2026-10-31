@@ -8,3 +8,13 @@ def test_health_reports_service_ready() -> None:
 
     assert response.status_code == 200
     assert response.json() == {"status": "ok"}
+
+
+def test_spike_endpoint_returns_local_api_status() -> None:
+    response = TestClient(app).get("/api/spike")
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "service": "FastAPI",
+        "message": "React is connected to the local API.",
+    }

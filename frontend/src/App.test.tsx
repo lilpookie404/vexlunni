@@ -10,5 +10,6 @@ describe("App", () => {
     expect(html).toContain("Wind decision replay");
     expect(html).toContain("January 2026");
     expect(html).toContain("Forecast versus outturn");
+    expect(html).toContain("Connecting to local API");
   });
 });
