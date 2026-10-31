@@ -1,0 +1,161 @@
+:root {
+  color: #15243a;
+  background: #eaf3f6;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    linear-gradient(115deg, rgb(255 255 255 / 70%), transparent 46%),
+    #eaf3f6;
+}
+
+.shell {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 32px 0 72px;
+}
+
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #9bb3bd;
+}
+
+.eyebrow,
+.status,
+.label {
+  margin: 0;
+  color: #47616d;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.status {
+  color: #156f76;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: 168px 1fr;
+  gap: clamp(32px, 7vw, 96px);
+  align-items: end;
+  min-height: 55vh;
+  padding: 72px 0;
+}
+
+.wind-mark {
+  display: grid;
+  gap: 12px;
+  transform: skewY(-8deg);
+}
+
+.wind-mark span {
+  display: block;
+  height: 12px;
+  border-radius: 999px;
+  background: #17a6b6;
+}
+
+.wind-mark span:nth-child(2) {
+  width: 72%;
+  background: #2b67b2;
+}
+
+.wind-mark span:nth-child(3) {
+  width: 42%;
+  background: #e69b31;
+}
+
+h1 {
+  max-width: 780px;
+  margin: 0;
+  color: #102b4e;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.4rem, 9vw, 8.6rem);
+  font-weight: 400;
+  letter-spacing: -0.07em;
+  line-height: 0.82;
+}
+
+.lede {
+  max-width: 660px;
+  margin: 36px 0 0;
+  color: #314c59;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.55;
+}
+
+.scope {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid #9bb3bd;
+}
+
+.scope article {
+  padding: 22px 28px 0 0;
+}
+
+.scope article + article {
+  padding-left: 28px;
+  border-left: 1px solid #9bb3bd;
+}
+
+.scope article p:last-child {
+  margin: 12px 0 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 680px) {
+  .shell {
+    width: min(100% - 28px, 1120px);
+    padding-top: 20px;
+  }
+
+  .masthead {
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .intro {
+    grid-template-columns: 1fr;
+    align-content: center;
+    min-height: 65vh;
+  }
+
+  .wind-mark {
+    width: 112px;
+  }
+
+  .scope {
+    grid-template-columns: 1fr;
+  }
+
+  .scope article,
+  .scope article + article {
+    padding: 20px 0;
+    border-left: 0;
+    border-bottom: 1px solid #9bb3bd;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
